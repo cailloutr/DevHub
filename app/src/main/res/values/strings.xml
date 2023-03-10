@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">DevHub</string>
     <string name="profile_picture">Profile picture</string>
+    <string name="profile_picture_ct">Profile picture</string>
 </resources>

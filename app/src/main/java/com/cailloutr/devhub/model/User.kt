@@ -4,7 +4,7 @@ data class User(
     val name: String = "",
     val user: String = "",
     val bio: String = "",
-    val image: Int = 0,
+    val image: String? = null,
     val pronouns: String = ""
 ) {
 }
