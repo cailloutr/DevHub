@@ -7,3 +7,4 @@ Tech:
 - Jetpack Compose
 - ViewModel
 - Retrofit/Moshi
+- Hilt
