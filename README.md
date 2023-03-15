@@ -1,10 +1,18 @@
-# DevHub
-### (ongoing project)
+# Nome do meu projeto
 
-Um aplicativo em Jetpack Compose que busca e exibe dados públicos de usuários do GitHub.
+Rápida descrição do objetivo de fazer esse projeto
 
-Tech:
-- Jetpack Compose
-- ViewModel
-- Retrofit/Moshi
-- Hilt
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | **DevHub**
+| :label: Tecnologias | Jetpack Compose, ViewModel, Retrofit/Moshi, Hilt
+| :rocket: URL         | https://github.com/cailloutr/DevHub
+| :fire: Desafio     | https://7daysofcode.io/matricula/android
+
+<!-- Inserir imagem com a #vitrinedev ao final do link -->
+![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
+
+## Detalhes do projeto
+
+App feito em Jetpack Compose que consome a API do GitHub e exibe informações públicas sobre usuários.
+App made with Jetpack Compose, that consumes the GitHub API and show public information about users.
