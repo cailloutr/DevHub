@@ -9,7 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.cailloutr.devhub.ui.MainActivityViewModel
+import com.cailloutr.devhub.ui.Screen
 import com.cailloutr.devhub.ui.screens.ProfileScreen
+import com.cailloutr.devhub.ui.screens.SearchScreen
 import com.cailloutr.devhub.ui.theme.DevHubTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,9 +36,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp() {
+fun MyApp(
+    viewModel: MainActivityViewModel = viewModel(),
+) {
+    val screen = viewModel.screen
     DevHubTheme {
-        ProfileScreen()
+        if (screen.value == Screen.PROFILE) {
+            ProfileScreen()
+        } else {
+            SearchScreen()
+        }
     }
 }
 
