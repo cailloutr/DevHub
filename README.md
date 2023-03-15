@@ -14,7 +14,7 @@ Projeto desenvolvido com o objetivo de aprender mais sobre Jetpack Compose
 .   
        
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-<img src="https://raw.githubusercontent.com/cailloutr/DevHub/main/screenshots/DevHub_Profile.jpg#vitrinedev" style="width: 390px; height: 844px; display: flex;#vitrinedev"/> <img src="screenshots/DevHub_Search.jpg" style="width: 390px; height: 844px; display: flex;"/>
+<img src="https://raw.githubusercontent.com/cailloutr/DevHub/main/screenshots/DevHub_Profile.jpg#vitrinedev" style="width: 390px; height: 844px; display: flex;"/> <img src="screenshots/DevHub_Search.jpg" style="width: 390px; height: 844px; display: flex;"/>
 
 ## Detalhes do projeto
 
