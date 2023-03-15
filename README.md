@@ -1,6 +1,6 @@
-# Nome do meu projeto
+# DevHub
 
-Rápida descrição do objetivo de fazer esse projeto
+Projeto desenvolvido com o objetivo de aprender mais sobre Jetpack Compose
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
@@ -9,8 +9,9 @@ Rápida descrição do objetivo de fazer esse projeto
 | :rocket: URL         | https://github.com/cailloutr/DevHub
 | :fire: Desafio     | https://7daysofcode.io/matricula/android
 
-    
-    
+.
+.
+.   
        
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 <img src="screenshots/DevHub_Profile.jpg" style="width: 390px; height: 844px; display: flex;#vitrinedev"/> <img src="screenshots/DevHub_Search.jpg" style="width: 390px; height: 844px; display: flex;"/>
