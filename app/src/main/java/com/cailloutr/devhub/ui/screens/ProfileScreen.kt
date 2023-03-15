@@ -1,5 +1,7 @@
 package com.cailloutr.devhub.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -25,6 +27,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -174,8 +177,14 @@ fun RepositoryItem(
     githubUserRepositories: GithubRepositoryModel,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
+
     Card(
         elevation = CardDefaults.cardElevation(4.dp),
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(githubUserRepositories.url))
+            startActivity(context, intent, null)
+        },
         modifier = modifier.padding(8.dp)
     ) {
         Column(

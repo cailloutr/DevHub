@@ -42,7 +42,7 @@ fun MyApp(
     val screen = viewModel.screen
     DevHubTheme {
         if (screen.value == Screen.PROFILE) {
-            ProfileScreen()
+                ProfileScreen()
         } else {
             SearchScreen()
         }
