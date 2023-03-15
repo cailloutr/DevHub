@@ -1,16 +1,20 @@
-# Nome do meu projeto
+# DevHub
 
-Rápida descrição do objetivo de fazer esse projeto
+Projeto desenvolvido com o objetivo de aprender mais sobre Jetpack Compose
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
 | :sparkles: Nome        | **DevHub**
-| :label: Tecnologias | Jetpack Compose, ViewModel, Retrofit/Moshi, Hilt
+| :label: Tecnologias | Jetpack Compose, ViewModel, Retrofit/Moshi, Hilt, Material Design 3
 | :rocket: URL         | https://github.com/cailloutr/DevHub
 | :fire: Desafio     | https://7daysofcode.io/matricula/android
 
+.
+.
+.   
+       
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
+<img src="https://raw.githubusercontent.com/cailloutr/DevHub/main/screenshots/DevHub_Profile.jpg#vitrinedev" style="width: 390px; height: 844px; display: flex;"/> <img src="screenshots/DevHub_Search.jpg" style="width: 390px; height: 844px; display: flex;"/>
 
 ## Detalhes do projeto
 
