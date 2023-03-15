@@ -35,6 +35,7 @@ import com.cailloutr.devhub.network.Resource
 import com.cailloutr.devhub.network.Status
 import com.cailloutr.devhub.ui.MainActivityViewModel
 import com.cailloutr.devhub.ui.ProfileUiState
+import com.cailloutr.devhub.ui.Screen
 import com.cailloutr.devhub.ui.theme.DevHubTheme
 
 private const val TAG = "SearchScreen"
@@ -79,7 +80,12 @@ fun SearchScreen(
                 Spacer(modifier = Modifier.padding(top = 32.dp))
                 if (uiState != null) {
                     Log.i(TAG, "SearchScreen: uiState: $uiState")
-                    SearchResult(state = uiState)
+                    SearchResult(
+                        state = uiState,
+                        onClick = {
+                            viewModel.setScreen(Screen.PROFILE)
+                        }
+                    )
                     if (text.isEmpty()) {
                         viewModel.uiState = null
                     }
@@ -128,12 +134,18 @@ fun SearchBar(
 
 @Composable
 fun SearchResult(
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     state: Resource<ProfileUiState>,
 ) {
     when (state.status) {
         Status.SUCCESS -> {
-            state.data?.let { ProfileSearchCard(state = it, modifier = modifier) }
+            state.data?.let {
+                ProfileSearchCard(
+                    state = it,
+                    modifier = modifier,
+                    onClick = { onClick() })
+            }
         }
         Status.LOADING -> {
             LoadingSearchCard()
@@ -148,9 +160,13 @@ fun SearchResult(
 @Composable
 fun ProfileSearchCard(
     state: ProfileUiState,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
+        onClick = {
+            onClick()
+        },
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp)
@@ -262,7 +278,8 @@ fun ProfileSearchCardPreview() {
                 profileImage = "https://avatars.githubusercontent.com/u/49699297?v=4",
                 name = "Caio",
                 bio = "Estudante"
-            )
+            ),
+            onClick = {}
         )
     }
 }

@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,6 +33,7 @@ import com.cailloutr.devhub.model.GithubRepositoryModel
 import com.cailloutr.devhub.network.Status
 import com.cailloutr.devhub.ui.MainActivityViewModel
 import com.cailloutr.devhub.ui.ProfileUiState
+import com.cailloutr.devhub.ui.Screen
 import com.cailloutr.devhub.ui.theme.DevHubTheme
 
 private const val TAG = "ProfileScreen"
@@ -42,33 +44,41 @@ fun ProfileScreen(
     viewModel: MainActivityViewModel = viewModel(),
 ) {
     val uiState = viewModel.uiState
-    LaunchedEffect(null) {
-        viewModel.getUser("cailloutr")
-        Log.i(TAG, "ProfileScreen: $uiState")
-    }
-    if (uiState?.status == Status.SUCCESS) {
-        uiState.data?.let {
-            LazyColumn() {
-                item {
-                    Profile(state = it, modifier = modifier)
-                }
 
-                item {
-                    Text(
-                        text = "Repositórios",
-                        modifier = Modifier.padding(vertical = 16.dp, horizontal = 8.dp),
-                        style = MaterialTheme.typography.titleLarge
-                    )
-                }
+    when (uiState?.status) {
+        Status.SUCCESS -> {
+            uiState.data?.let {
+                LazyColumn() {
+                    item {
+                        Profile(
+                            state = it,
+                            modifier = modifier,
+                            onBackClick = { viewModel.setScreen(Screen.SEARCH) })
+                    }
 
-                items(uiState.data.repositories) {
-                    RepositoryItem(githubUserRepositories = it)
+                    item {
+                        Text(
+                            text = "Repositórios",
+                            modifier = Modifier.padding(vertical = 16.dp, horizontal = 8.dp),
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+
+                    items(uiState.data.repositories) {
+                        RepositoryItem(githubUserRepositories = it)
+                    }
                 }
+                Log.i(TAG, "User: ${uiState.data}")
             }
-            Log.i(TAG, "User: ${uiState.data}")
         }
-    } else {
-        Text(text = uiState?.message ?: "Error")
+
+        Status.LOADING, null -> {
+            LoadingScreen()
+        }
+
+        Status.ERROR -> {
+            Text(text = uiState.message ?: "Error")
+        }
     }
 }
 
@@ -76,6 +86,7 @@ fun ProfileScreen(
 fun Profile(
     modifier: Modifier = Modifier,
     state: ProfileUiState,
+    onBackClick: () -> Unit,
 ) {
     Column(modifier = modifier) {
 
@@ -97,7 +108,7 @@ fun Profile(
                 .height(boxHeight)
         ) {
             IconButton(
-                onClick = { /*TODO*/ },
+                onClick = { onBackClick() },
                 modifier = Modifier.padding(16.dp)
             ) {
                 Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
@@ -192,6 +203,23 @@ fun RepositoryItem(
     }
 }
 
+@Composable
+fun LoadingScreen(
+    modifier: Modifier = Modifier,
+) {
+    Box(modifier = modifier.fillMaxSize(), contentAlignment = Center) {
+        LoadingSearchCard()
+    }
+}
+
+@Preview
+@Composable
+fun LoadingScreenPreview() {
+    DevHubTheme {
+        LoadingScreen()
+    }
+}
+
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun ProfileScreenPreview() {
@@ -260,7 +288,8 @@ fun ProfilePreview() {
                     profileImage = "https://avatars.githubusercontent.com/u/49699297?v=4",
                     name = "Caio",
                     bio = "Estudante"
-                )
+                ),
+                onBackClick = {}
             )
         }
     }
