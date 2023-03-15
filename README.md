@@ -5,12 +5,15 @@ Rápida descrição do objetivo de fazer esse projeto
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
 | :sparkles: Nome        | **DevHub**
-| :label: Tecnologias | Jetpack Compose, ViewModel, Retrofit/Moshi, Hilt
+| :label: Tecnologias | Jetpack Compose, ViewModel, Retrofit/Moshi, Hilt, Material Design 3
 | :rocket: URL         | https://github.com/cailloutr/DevHub
 | :fire: Desafio     | https://7daysofcode.io/matricula/android
 
+    
+    
+       
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
+<img src="screenshots/DevHub_Profile.jpg" style="width: 390px; height: 844px; display: flex;#vitrinedev"/> <img src="screenshots/DevHub_Search.jpg" style="width: 390px; height: 844px; display: flex;"/>
 
 ## Detalhes do projeto
 
